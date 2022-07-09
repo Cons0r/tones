@@ -1,20 +1,28 @@
 <script lang=ts>
-    import { tenos, opentenos, activeteno, renamingteno, type Teno } from "$lib/store";
-    import { writable } from "svelte/store";
-
-    const tenoinputelem = writable({
-
+    import { tenos, opentenos, activeteno, renamingteno, editoroptions, activetenoind, type Teno } from "$lib/store";
+    activeteno.subscribe((a) => {
+        activetenoind.set($tenos.findIndex((v) => v.id === a))
     })
+    import { writable } from "svelte/store"
+    const dividex = writable(true)
+    import SvelteMarkdown from 'svelte-markdown'
+
+    // const tenoinputelem = writable({
+
+    // })
 
     function createteno() {
         return () => {
             tenos.update(t => {
-                t.push({
+                const teno = {
                     title: "",
                     body: "",
                     date: new Date().getDate(),
                     id: crypto.randomUUID()
-                })
+                }
+                t.push(teno)
+                activeteno.set(teno.id)
+                renamingteno.set(teno.id)
                 return t
             })
         }
@@ -23,7 +31,8 @@
     opentenos.subscribe(console.log)
 
     function openteno(teno: Teno | undefined) {
-        return () => {
+        return (e: MouseEvent) => {
+            console.log(e)
             if(!teno) throw new Error('Teno was undefined')
             activeteno.set(teno.id)
             opentenos.update((o) => {
@@ -43,20 +52,34 @@
     }
 
     function closeteno(id: string) {
-        return (e: MouseEvent) => {
+        return () => {
             opentenos.update((o) => {
                 if(!findteno(id)) return o
                 const teno = o.findIndex((t) => t === id)
                 if(teno === -1) return o
                 delete o[teno]
+                // this works better than i thought it would
+                activeteno.set(o[teno-1])
                 return o.filter((v) => !!v)
             })
-            e.target?.focus()
+        }
+    }
+
+
+    function removeteno(id: string) {
+        return () => {
+            tenos.update((t) => {
+                closeteno(id)()
+                const teno = t.findIndex((te) => te.id === id)
+                delete t[teno]
+                return t.filter((v) => !!v)
+            })
         }
     }
 
     function keydown(e: KeyboardEvent) {
-        if($renamingteno && e.key === "Enter") {
+        if($renamingteno !== false && typeof $renamingteno !== 'boolean' && e.key === "Enter") {
+            if(findteno($renamingteno)?.title.length === 0) removeteno($renamingteno)()
             renamingteno.set(false)
         }
     }
@@ -66,12 +89,21 @@
             return t.id === id
         })
     }
+
+    function swapdivide() {
+        const divide = !$dividex?'x':'y'
+        dividex.set(!$dividex)
+        editoroptions.update(e => {
+            e.divide = divide
+            return e
+        })
+    }
 </script>
 
 <div class="flex flex-row w-full h-full">
     <div class="w-40 flex flex-col divide-y-2">
         {#each $tenos as teno}
-            <div class="flex flex-row" on:click={openteno(teno)} on:dblclick={renameteno(teno)}>
+            <div class="flex flex-row" on:click|preventDefault={openteno(teno)} on:contextmenu|preventDefault={removeteno(teno.id)} on:dblclick={renameteno(teno)}>
                 <input type="text" bind:value={teno.title} disabled={$renamingteno !== teno.id} placeholder="(no title)" class="input bg-trasparent rounded-none input-sm w-full max-w-xs placeholder:text-error" />
                 {#if teno?.pin}
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -108,8 +140,22 @@
             {/each}
         </div>
         {#if $activeteno?.length}
-            <div class="bg-base-300 h-full">
-                E
+            <div class="bg-base-300 h-full flex" class:flex-row={$editoroptions.divide === 'x'}  class:flex-col={$editoroptions.divide === 'y'}>
+                <div class="absolute right-0 flex flex-row bg-base-100 rounded-bl-lg p-2 divide-x-2 divide-transparent">
+                    <div class="w-5 h-5 cursor-pointer swap" on:click={swapdivide}>
+                        <input type="checkbox" bind:checked={$dividex}>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 swap-off" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 swap-on" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+                        </svg>
+                    </div>
+                </div>
+                <textarea bind:value={$tenos[$activetenoind].body} class="flex-grow resize-none w-[50%] bg-base-300 border-base-content" class:w-[50%]={$editoroptions.divide === 'x'} class:h-[50%]={$editoroptions.divide === 'y'} class:border-r={$editoroptions.divide === 'x'} class:border-b={$editoroptions.divide === 'y'}></textarea>
+                <div class="prose flex-grow resize-none border-base-content" class:w-[50%]={$editoroptions.divide === 'x'} class:h-[50%]={$editoroptions.divide === 'y'} class:min-w-full={$editoroptions.divide === 'y'} class:border-l={$editoroptions.divide === 'x'} class:border-t={$editoroptions.divide === 'y'}>
+                    <SvelteMarkdown source={$tenos[$activetenoind].body} />
+                </div>
             </div>
         {:else}
             <div class="flex bg-base-300 items-center h-full justify-center">
