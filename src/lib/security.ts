@@ -1,7 +1,8 @@
 import { noopStorage, type StorageInterface } from "@macfja/svelte-persistent-store"
-import SimpleCrypto, { type PlainData } from "simple-crypto-js"
+import * as SimpleCrypto from "simple-crypto-js"
+import type { PlainData } from 'simple-crypto-js'
 const SUPER_SECRET_KEY = import.meta.env.VITE_APP_SECURITY_KEY
-const cryptoJS = new SimpleCrypto(SUPER_SECRET_KEY)
+const cryptoJS = new SimpleCrypto.SimpleCrypto(SUPER_SECRET_KEY)
 
 function encrypt(obj: unknown): string {
     return cryptoJS.encrypt(JSON.stringify(obj))
