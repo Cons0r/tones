@@ -16,7 +16,7 @@
 
 <div class="w-screen h-screen bg-base-100 flex flex-col">
 	<nav class="navbar bg-base-200">
-		<button class="btn btn-ghost normal-case text-xl">tones</button>
+		<button class="btn btn-ghost normal-case text-xl">teno</button>
 		<div class="flex-grow"></div>
 		<label class="swap swap-rotate btn btn-ghost">
 			<input type="checkbox" bind:checked={$theme}>

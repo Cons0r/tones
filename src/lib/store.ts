@@ -2,7 +2,7 @@ import { persist, localStorage } from "@macfja/svelte-persistent-store"
 import { writable } from "svelte/store"
 import encryptedLocalStorage from "./security"
 
-export type Tone = {
+export type Teno = {
     title: string,
     pin?: number,
     body: string,
@@ -10,18 +10,18 @@ export type Tone = {
     id: string
 }
 
-const tones = persist<Tone[]>(writable([]), encryptedLocalStorage(), 'TONES.ENCRYPTED')
+const tenos = persist<Teno[]>(writable([]), encryptedLocalStorage(), 'tenoS.ENCRYPTED')
 const theme = persist<boolean>(writable(false), localStorage(), 'SVELTE.THEME')
-const opentones = writable<string[]>([])
-const activetone = writable<string>()
-const renamingtone = writable<string | boolean>(false)
+const opentenos = writable<string[]>([])
+const activeteno = writable<string>()
+const renamingteno = writable<string | boolean>(false)
 
-export default tones;
+export default tenos;
 
 export {
-    tones,
+    tenos,
     theme,
-    opentones,
-    activetone,
-    renamingtone
+    opentenos,
+    activeteno,
+    renamingteno
 };
