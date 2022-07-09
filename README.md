@@ -27,4 +27,5 @@ This project goes by multiple names
 - JorPect TENO (Project NOTE scrambled)
 - Tones (dead name)
 
+
 [^1]: With the help of a few packages, all data stored besides the user theme is encrypted using AES encryption and a super long encryption key
