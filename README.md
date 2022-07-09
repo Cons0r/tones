@@ -9,8 +9,8 @@
 
 ## Bonus features
 
--   [ ] User can create and edit a teno in Markdown format. On save it will convert Markdown to HTML
--   [ ] User can see the date when they created the teno
+-   [x] ~User can create and edit a teno in Markdown format. On save it will convert Markdown to HTML~
+-   [x] ~User can see the date when they created the teno~
 
 ## Others
 -   [ ] User can lock a teno with a PIN code

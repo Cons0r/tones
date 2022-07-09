@@ -17,7 +17,7 @@
                 const teno = {
                     title: "",
                     body: "",
-                    date: new Date().getDate(),
+                    date: Date.now(),
                     id: crypto.randomUUID()
                 }
                 t.push(teno)
@@ -138,19 +138,20 @@
                     </button>
                 </div>
             {/each}
+            <div class="w-5 h-5 absolute right-4 my-1 cursor-pointer swap" on:click={swapdivide}>
+                <input type="checkbox" bind:checked={$dividex}>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 swap-off" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 swap-on" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+                </svg>
+            </div>
         </div>
         {#if $activeteno?.length}
             <div class="bg-base-300 h-full flex" class:flex-row={$editoroptions.divide === 'x'}  class:flex-col={$editoroptions.divide === 'y'}>
                 <div class="absolute right-0 flex flex-row bg-base-100 rounded-bl-lg p-2 divide-x-2 divide-transparent">
-                    <div class="w-5 h-5 cursor-pointer swap" on:click={swapdivide}>
-                        <input type="checkbox" bind:checked={$dividex}>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 swap-off" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 swap-on" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
-                        </svg>
-                    </div>
+                    <span class="text-base-content">Created {new Date($tenos[$activetenoind].date).toDateString()}</span>
                 </div>
                 <textarea bind:value={$tenos[$activetenoind].body} class="flex-grow resize-none w-[50%] bg-base-300 border-base-content" class:w-[50%]={$editoroptions.divide === 'x'} class:h-[50%]={$editoroptions.divide === 'y'} class:border-r={$editoroptions.divide === 'x'} class:border-b={$editoroptions.divide === 'y'}></textarea>
                 <div class="prose flex-grow resize-none border-base-content" class:w-[50%]={$editoroptions.divide === 'x'} class:h-[50%]={$editoroptions.divide === 'y'} class:min-w-full={$editoroptions.divide === 'y'} class:border-l={$editoroptions.divide === 'x'} class:border-t={$editoroptions.divide === 'y'}>
