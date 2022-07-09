@@ -2,10 +2,10 @@
 
 ## User Tenos
 
--   [x] User can create a teno
--   [x] User can edit a teno
--   [x] User can delete a teno
--   [x] Upon closing the browser window the tenos will be stored and when the User returns, the data will be retrieved
+-   [x] ~User can create a teno~
+-   [x] ~User can edit a teno~
+-   [x] ~User can delete a teno~
+-   [x] ~Upon closing the browser window the tenos will be stored and when the User returns, the data will be retrieved~
 
 ## Bonus features
 
@@ -14,8 +14,8 @@
 
 ## Others
 -   [ ] User can lock a teno with a PIN code
--   [x] All data is fully encrypted using AES [^1]
--   [x] Dark Mode
+-   [x] ~All data is fully encrypted using AES[^1]~
+-   [x] ~Dark Mode~
 -   [ ] Users can download .teno files containing tenos
 -   [ ] Users can select what tenos to export and import to and from .teno files
 
