@@ -1,4 +1,4 @@
-# Tones
+# Tones (aka. Project CENA)
 
 ## User Stories
 
