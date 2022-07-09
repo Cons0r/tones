@@ -1,10 +1,10 @@
 # teno
 
-## User Stories
+## User Tenos
 
--   [ ] User can create a teno
--   [ ] User can edit a teno
--   [ ] User can delete a teno
+-   [x] User can create a teno
+-   [x] User can edit a teno
+-   [x] User can delete a teno
 -   [*] Upon closing the browser window the tenos will be stored and when the User returns, the data will be retrieved
 
 ## Bonus features
