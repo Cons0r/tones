@@ -3,6 +3,6 @@
     import Tab from "./Tab.svelte";
 </script>
 
-{#each $opentenos as teno }
+{#each $opentenos as teno (teno)}
 <Tab {teno} />
 {/each}

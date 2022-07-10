@@ -38,10 +38,8 @@
     }
 
     function renameteno(teno: Teno | undefined) {
-        return () => {
-            if(!teno) throw new Error('Teno was undefined')
-            renamingteno.set(teno.id)
-        }
+        if(!teno) throw new Error('Teno was undefined')
+        renamingteno.set(teno.id)
     }
 
     function closeteno(id: string) {

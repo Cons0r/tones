@@ -5,7 +5,7 @@
     import TabList from "./TabList.svelte";
 </script>
 
-<div class="flex-shrink flex flex-row min-h-8 max-h-8 overflow-x-scroll overflow-y-clip hide-bar">
+<div class="flex-shrink flex flex-row min-h-8 max-h-8 overflow-x-scroll overflow-y-clip hide-bar z-5">
     <TabList />
     <div class="w-20 h-8 absolute right-0 flex items-center justify-center bg-base-300" on:click={swapdivide}>
         <div class="swap cursor-pointer">

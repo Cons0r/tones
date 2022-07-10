@@ -9,6 +9,10 @@ UI Inspired by VScode
 -   [x] ~User can delete a teno~ (by right clicking)
 -   [x] ~Upon closing the browser window the tenos will be stored and when the User returns, the data will be retrieved~
 
+## Tab System
+-   [x] ~User can open tabs~
+-   [x] ~User can close tabs~ (by right clicking)
+
 ## Bonus features
 
 -   [x] ~User can create and edit a teno in Markdown format. On save it will convert Markdown to HTML~
