@@ -5,11 +5,16 @@
 	import { theme } from "$lib/store"
 	import ModalList from '@mavthedev/svodals'
 	import ConfirmDelete from '$lib/Modals/ConfirmDelete.svelte'
+	import Lock from '$lib/Modals/Lock.svelte'
 
 	let modals = [
 		{
 			id: "delete",
 			component: ConfirmDelete
+		},
+		{
+			id: 'lock',
+			component: Lock
 		}
 	]
 	

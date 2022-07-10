@@ -6,7 +6,7 @@ UI Inspired by VScode
 
 -   [x] ~User can create a teno~
 -   [x] ~User can edit a teno~
--   [x] ~User can delete a teno~
+-   [x] ~User can delete a teno~ (by right clicking)
 -   [x] ~Upon closing the browser window the tenos will be stored and when the User returns, the data will be retrieved~
 
 ## Bonus features

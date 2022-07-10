@@ -10,18 +10,12 @@ export type Teno = {
     id: string
 }
 
-type EditorOptions = {
-    divide: 'x' | 'y'
-}
-
 const tenos = persist<Teno[]>(writable([]), encryptedLocalStorage(), 'tenoS.ENCRYPTED')
 const theme = persist<boolean>(writable(false), localStorage(), 'SVELTE.THEME')
 const opentenos = writable<string[]>([])
 const activeteno = writable<string>()
 const renamingteno = writable<string | boolean>(false)
-const editoroptions = writable<EditorOptions>({
-    divide: 'x'
-})
+const dividex = writable(true)
 const activetenoind = writable(0)
 
 export default tenos;
@@ -32,6 +26,6 @@ export {
     opentenos,
     activeteno,
     renamingteno,
-    editoroptions,
+    dividex,
     activetenoind
 };
