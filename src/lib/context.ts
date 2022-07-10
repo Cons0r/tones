@@ -1,5 +1,4 @@
 import { getContext } from "svelte"
-import type { Teno } from '$lib/store'
 
 const contextkey = {
     createteno: null,
