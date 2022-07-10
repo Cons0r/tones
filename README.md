@@ -1,5 +1,7 @@
 # teno
 
+UI Inspired by VScode
+
 ## User Tenos
 
 -   [x] ~User can create a teno~
@@ -22,10 +24,11 @@
 
 ## Other Names
 This project goes by multiple names
-- **teno** (current name, stylized lowercase, *it's the word note scrambled*)
-- Project CENA (code name short for Cybernetically Encrypted Notes App, and also named for its encryption)
+- **teno**[^2] (current name, stylized lowercase, *it's the word note scrambled*)
+- Project CENA (code name short for Cybernetically Encrypted Notes App, and also named for its encryption "You Ain't CENA byte")
 - JorPect TENO (Project NOTE scrambled)
 - Tones (dead name)
 
 
 [^1]: With the help of a few packages, all data stored besides the user theme is encrypted using AES encryption and a super long encryption key
+[^2]: Pronounced "tay no" (with an australian accent... except im american,) not "T no" or "te(st) no"

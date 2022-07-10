@@ -30,5 +30,8 @@
     "typescript": "^4.7.4",
     "vite": "^2.9.13"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@mavthedev/svodals": "^1.0.0"
+  }
 }

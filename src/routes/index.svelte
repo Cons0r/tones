@@ -28,11 +28,9 @@
         }
     }
 
-    opentenos.subscribe(console.log)
 
     function openteno(teno: Teno | undefined) {
         return (e: MouseEvent) => {
-            console.log(e)
             if(!teno) throw new Error('Teno was undefined')
             activeteno.set(teno.id)
             opentenos.update((o) => {
@@ -46,7 +44,6 @@
     function renameteno(teno: Teno | undefined) {
         return () => {
             if(!teno) throw new Error('Teno was undefined')
-            console.log('breakfast')
             renamingteno.set(teno.id)
         }
     }
@@ -101,7 +98,7 @@
 </script>
 
 <div class="flex flex-row w-full h-full">
-    <div class="w-40 flex flex-col divide-y-2">
+    <div class="w-40 flex flex-col divide-y-2 pt-8">
         {#each $tenos as teno}
             <div class="flex flex-row" on:click|preventDefault={openteno(teno)} on:contextmenu|preventDefault={removeteno(teno.id)} on:dblclick={renameteno(teno)}>
                 <input type="text" bind:value={teno.title} disabled={$renamingteno !== teno.id} placeholder="(no title)" class="input bg-trasparent rounded-none input-sm w-full max-w-xs placeholder:text-error" />
@@ -123,16 +120,16 @@
             <span>Create teno</span>
         </button>
     </div>
-    <div class="flex-grow flex flex-col">
-        <div class="flex-shrink flex flex-row min-h-8">
+    <div class="flex-grow flex flex-col max-w-[90%]">
+        <div class="flex-shrink flex flex-row min-h-8 max-h-8 overflow-x-scroll overflow-y-clip hide-bar">
             {#each $opentenos as teno }
                 {@const tenoobj = $tenos.find((t) => {
                     return t.id === teno
                 })}
-                <div class="min-h-8 group rounded-t-md transition-colors" class:bg-base-300={teno === $activeteno} on:click={openteno(tenoobj)}>
-                    <span class="text-sm">{tenoobj?.title}</span>
-                    <button class="w-4 h-4 mr-1" on:click={closeteno(teno)}>
-                        <span class="hidden group-hover:inline">
+                <div class="min-h-8 max-h-8 group overflow-x-visible rounded-t-md transition-colors inline" class:bg-base-300={teno === $activeteno} on:click={openteno(tenoobj)}>
+                    <span class="text-sm inline">{tenoobj?.title}</span>
+                    <button class="min-h-8 max-h-8 w-4 h-4 h mr-1 inline" on:click={ closeteno(teno)}>
+                        <span class="block opacity-0 group-hover:opacity-100 transition-all hover:bg-base-100 rounded-md">
                             &#x2715;
                         </span>
                     </button>

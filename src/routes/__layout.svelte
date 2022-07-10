@@ -14,7 +14,7 @@
 
 
 
-<div class="w-screen h-screen bg-base-100 flex flex-col">
+<div class="w-screen h-screen bg-base-100 flex flex-col max-w-[100vw] max-h-[100vh]">
 	<nav class="navbar bg-base-200">
 		<button class="btn btn-ghost normal-case text-xl">teno</button>
 		<div class="flex-grow"></div>
