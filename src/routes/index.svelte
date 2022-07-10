@@ -1,11 +1,14 @@
 <script lang=ts>
     import { tenos, opentenos, activeteno, renamingteno, editoroptions, activetenoind, type Teno } from "$lib/store";
     activeteno.subscribe((a) => {
-        activetenoind.set($tenos.findIndex((v) => v.id === a))
+        activetenoind.set($tenos.findIndex((v) => v?.id === a))
     })
+
     import { writable } from "svelte/store"
     const dividex = writable(true)
     import SvelteMarkdown from 'svelte-markdown'
+    import { getModalContext } from "@mavthedev/svodals";
+    const { addModal } = getModalContext()
 
     // const tenoinputelem = writable({
 
@@ -74,6 +77,17 @@
         }
     }
 
+    function asktoremove(id) {
+        return () => {
+            addModal('delete', d => {
+                if(!d) return
+                removeteno(id)()
+            }, {
+                teno: findteno(id)
+            })
+        }
+    } 
+
     function keydown(e: KeyboardEvent) {
         if($renamingteno !== false && typeof $renamingteno !== 'boolean' && e.key === "Enter") {
             if(findteno($renamingteno)?.title.length === 0) removeteno($renamingteno)()
@@ -100,7 +114,7 @@
 <div class="flex flex-row w-full h-full">
     <div class="w-40 flex flex-col divide-y-2 pt-8">
         {#each $tenos as teno}
-            <div class="flex flex-row" on:click|preventDefault={openteno(teno)} on:contextmenu|preventDefault={removeteno(teno.id)} on:dblclick={renameteno(teno)}>
+            <div class="flex flex-row" on:click|preventDefault={openteno(teno)} on:contextmenu|preventDefault={asktoremove(teno.id)} on:dblclick={renameteno(teno)}>
                 <input type="text" bind:value={teno.title} disabled={$renamingteno !== teno.id} placeholder="(no title)" class="input bg-trasparent rounded-none input-sm w-full max-w-xs placeholder:text-error" />
                 {#if teno?.pin}
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -126,23 +140,25 @@
                 {@const tenoobj = $tenos.find((t) => {
                     return t.id === teno
                 })}
-                <div class="min-h-8 max-h-8 group overflow-x-visible rounded-t-md transition-colors inline" class:bg-base-300={teno === $activeteno} on:click={openteno(tenoobj)}>
+                <div class="min-h-8 max-h-8 group overflow-x-visible rounded-t-md transition-colors inline whitespace-nowrap select-none" class:bg-base-300={teno === $activeteno} on:click={openteno(tenoobj)} on:contextmenu|preventDefault={closeteno(teno)}>
                     <span class="text-sm inline">{tenoobj?.title}</span>
-                    <button class="min-h-8 max-h-8 w-4 h-4 h mr-1 inline" on:click={ closeteno(teno)}>
+                    <button class="min-h-8 max-h-8 w-4 h-4 h mr-1 inline" on:click={closeteno(teno)}>
                         <span class="block opacity-0 group-hover:opacity-100 transition-all hover:bg-base-100 rounded-md">
                             &#x2715;
                         </span>
                     </button>
                 </div>
             {/each}
-            <div class="w-5 h-5 absolute right-4 my-1 cursor-pointer swap" on:click={swapdivide}>
-                <input type="checkbox" bind:checked={$dividex}>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 swap-off" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 swap-on" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
-                </svg>
+            <div class="w-20 h-8 absolute right-0 flex items-center justify-center bg-base-300" on:click={swapdivide}>
+                <div class="swap cursor-pointer">
+                    <input type="checkbox" bind:checked={$dividex}>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 swap-off" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 swap-on" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+                    </svg>
+                </div>
             </div>
         </div>
         {#if $activeteno?.length}

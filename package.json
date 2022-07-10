@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@macfja/svelte-persistent-store": "^1.2.0",
+    "@mavthedev/svodals": "^1.0.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@tailwindcss/typography": "^0.5.3",
@@ -30,8 +31,5 @@
     "typescript": "^4.7.4",
     "vite": "^2.9.13"
   },
-  "type": "module",
-  "dependencies": {
-    "@mavthedev/svodals": "^1.0.0"
-  }
+  "type": "module"
 }
