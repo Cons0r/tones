@@ -29,7 +29,7 @@
 				</svg>
 				</div>
 				<div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-				<h3 class="text-lg leading-6 font-medium text-base-content" id="modal-title">Delete {data?.teno?.title}?</h3>
+				<h3 class="text-lg leading-6 font-medium text-base-content" id="modal-title">Delete `{data?.teno?.title}`?</h3>
 				<div class="mt-2">
 					<p class="text-sm text-gray-500">Are you sure you want to delete this teno? this is an irreversable action.</p>
 				</div>

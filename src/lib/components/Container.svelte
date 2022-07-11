@@ -7,6 +7,7 @@
         activetenoind.set($tenos.findIndex((v) => v?.id === a))
     })
     const { addModal } = getModalContext()
+
     function createteno() {
         return () => {
             tenos.update(t => {
@@ -26,7 +27,7 @@
 
 
     function openteno(teno: Teno | undefined) {
-        return (e: MouseEvent) => {
+        return () => {
             if(!teno) throw new Error('Teno was undefined')
             activeteno.set(teno.id)
             opentenos.update((o) => {

@@ -3,6 +3,8 @@
     import Tab from "./Tab.svelte";
 </script>
 
-{#each $opentenos as teno (teno)}
-<Tab {teno} />
-{/each}
+<div class="w-[90%] min-h-full flex flex-row">
+    {#each $opentenos as teno (teno)}
+        <Tab {teno} />
+    {/each}
+</div>

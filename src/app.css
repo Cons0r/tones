@@ -3,6 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-bar::-webkit-scrollbar {

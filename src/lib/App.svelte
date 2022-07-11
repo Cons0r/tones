@@ -8,7 +8,7 @@
 <Container>
     <div class="flex flex-row w-full h-full">
         <SideBar />
-        <div class="flex-grow flex flex-col max-w-[90%]">
+        <div class="flex-grow flex flex-col max-w-[85%]">
             <TabBar />
             <ActiveTeno />
         </div>

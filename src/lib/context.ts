@@ -1,4 +1,5 @@
 import { getContext } from "svelte"
+import type { Teno } from "./store"
 
 const contextkey = {
     createteno: null,
@@ -12,7 +13,19 @@ const contextkey = {
     lockmodal: null
 }
 
-export const getAppContext = () => getContext(contextkey)
+type Context = {
+    createteno(): () => void,
+    openteno(teno: Teno): () => void,
+    renameteno(teno: Teno): void,
+    asktoremove(id: string): () => void,
+    closeteno(id: string): () => void,
+    keydown(e: KeyboardEvent): void,
+    findteno(id: string, arr: Array<Teno | string>): Teno,
+    swapdivide(): void,
+    lockmodal(teno: Teno): () => void
+}
+
+export const getAppContext = () => getContext<Context>(contextkey)
 export default getAppContext;
 export {
     contextkey
