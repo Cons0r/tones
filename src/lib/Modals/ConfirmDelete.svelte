@@ -1,5 +1,4 @@
 <script lang=ts>
-	import type { Teno } from "$lib/store";
 	import { fade, scale } from "svelte/transition";
 	export let data: {
 		teno: Teno
@@ -13,7 +12,6 @@
 	}
 </script>
 
-<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 	<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" on:click={wrapper(false)} transition:fade></div>
 	

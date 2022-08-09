@@ -2,7 +2,7 @@
     import { contextkey } from "$lib/context";
     import { getModalContext } from "@mavthedev/svodals";
     import { setContext } from "svelte";
-    import tenos, { activeteno, dividex, opentenos, renamingteno, activetenoind, type Teno } from "$lib/store"
+    import tenos, { activeteno, dividex, opentenos, renamingteno, activetenoind } from "$lib/store"
     activeteno.subscribe((a) => {
         activetenoind.set($tenos.findIndex((v) => v?.id === a))
     })

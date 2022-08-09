@@ -3,4 +3,6 @@
     import Teno from "./Teno.svelte";
 </script>
 
-{#each $tenos as teno}<Teno {teno} />{/each}
+{#each $tenos as teno}
+    <Teno {teno} />
+{/each}

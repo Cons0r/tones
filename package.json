@@ -18,19 +18,17 @@
     "@tsconfig/svelte": "^2.0.1",
     "autoprefixer": "^10.4.7",
     "daisyui": "^2.18.1",
+    "localstorage-slim": "^2.3.0",
     "postcss": "^8.4.14",
     "postcss-load-config": "^4.0.1",
-    "simple-crypto-js": "^3.0.1",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.7",
+    "svelte-markdown": "^0.2.2",
     "svelte-preprocess": "^4.10.7",
     "tailwindcss": "^3.1.5",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4",
-    "vite": "^2.9.9"
-  },
-  "dependencies": {
-    "svelte-markdown": "^0.2.2",
+    "vite": "^2.9.9",
     "vite-tsconfig-paths": "^3.5.0"
   }
 }

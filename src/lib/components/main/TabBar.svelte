@@ -1,7 +1,7 @@
 <script lang=ts>
     import getContext from "$lib/context";
     const { swapdivide } = getContext()
-    import { dividex } from "$lib/store";
+    import { activeteno, dividex } from "$lib/store";
     import TabList from "./TabList.svelte";
 </script>
 
@@ -9,7 +9,7 @@
     <TabList />
     <div class="w-[10%] h-8 absolute right-0 flex items-center justify-center bg-base-300" on:click={swapdivide}>
         <div class="swap cursor-pointer">
-            <input type="checkbox" class="hidden" bind:checked={$dividex}>
+            <input type="checkbox" class="hidden" disabled={!$activeteno} bind:checked={$dividex}>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 swap-off" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
             </svg>

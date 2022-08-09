@@ -1,5 +1,4 @@
 <script lang=ts>
-    import type { Teno } from "$lib/store";
     import getContext from '$lib/context'
     const { openteno, lockmodal, asktoremove, renameteno } = getContext()
     import tenos, { renamingteno } from '$lib/store'
