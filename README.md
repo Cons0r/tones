@@ -1,6 +1,6 @@
 # teno
 
-UI Inspired by VScode
+Vscode but if it only had markdown and was made in svelte
 
 ## User Tenos
 
