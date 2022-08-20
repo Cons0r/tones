@@ -14,7 +14,6 @@ type Context = {
     closeteno(id: string): () => void,
     keydown(e: KeyboardEvent): void,
     findteno(id: string, arr: Array<Teno | string>): Teno,
-    swapdivide(): void,
     lockmodal(teno: Teno): () => void,
     type: "electron" | "web",
     appVersion: string

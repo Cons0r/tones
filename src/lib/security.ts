@@ -16,7 +16,7 @@ function getBrokens(localStorage: typeof ls, keys: KeyMap) {
     return brokens
 }
 
-function encryptedLocalStorage(key: string, defaults: KeyMap): StorageInterface<Teno[]> {
+function encryptedLocalStorage(key: number, defaults: KeyMap): StorageInterface<Teno[]> {
     if(!ls && !window.localStorage) return noopStorage()
     ls.config.secret = key
     let brokenValues = getBrokens(ls, defaults)

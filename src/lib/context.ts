@@ -8,7 +8,6 @@ const contextkey = {
     closeteno: null,
     keydown: null,
     findteno: null,
-    swapdivide: null,
     lockmodal: null,
     type: null,
     appVersion: null

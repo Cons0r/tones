@@ -34,6 +34,8 @@
     "vite-tsconfig-paths": "^3.5.0"
   },
   "dependencies": {
+    "@tiptap/core": "^2.0.0-beta.182",
+    "@tiptap/starter-kit": "^2.0.0-beta.191",
     "monaco-editor": "^0.34.0"
   }
 }

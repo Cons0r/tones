@@ -15,7 +15,7 @@ vscode but if it only had markdown and was made in svelte
 
 ## Bonus features
 
--   [x] ~User can create and edit a teno in Markdown format. On save it will convert Markdown to HTML~
+-   [x] ~User can create and edit a Teno. On save it will convert Markdown to HTML~
 -   [x] ~User can see the date when they created the teno~
 
 ## Others
@@ -27,7 +27,7 @@ vscode but if it only had markdown and was made in svelte
 -   [ ] Create a logo
 
 ## Active Issues
--  [ ] Editor and Viewer not scrolling correctly (Possibly replace this with tiptap WYSIWYG?)
+-  [ ] Major sizing Issues
 
 ## Names
 - **teno**[^1] (main name, stylized lowercase, *it's the word note scrambled*)

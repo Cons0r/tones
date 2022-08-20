@@ -9,7 +9,9 @@ const config = {
     extend: {},
   },
 
-  plugins: [forms, typography, daisyui],
+  plugins: [forms({ 
+    strategy: "class"
+  }), typography, daisyui],
 };
 
 module.exports = config;

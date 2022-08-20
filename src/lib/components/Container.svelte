@@ -2,7 +2,7 @@
     import { contextkey } from "$lib/context";
     import { getModalContext } from "@mavthedev/svodals";
     import { setContext } from "svelte";
-    import tenos, { activeteno, dividex, opentenos, renamingteno, activetenoind } from "$lib/store"
+    import tenos, { activeteno, opentenos, renamingteno, activetenoind } from "$lib/store"
     activeteno.subscribe((a) => {
         activetenoind.set($tenos.findIndex((v) => v?.id === a))
     })
@@ -93,10 +93,6 @@
         })
     }
 
-    function swapdivide() {
-        dividex.set(!$dividex)
-    }
-
     function lockmodal(teno: Teno) {
         return () => {
             addModal('lock', (string: string) => {
@@ -119,7 +115,6 @@
         closeteno,
         keydown,
         findteno,
-        swapdivide,
         lockmodal,
         type,
         appVersion: version
