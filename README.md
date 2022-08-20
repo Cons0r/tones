@@ -1,6 +1,6 @@
 # teno
 
-Vscode but if it only had markdown and was made in svelte
+vscode but if it only had markdown and was made in svelte
 
 ## User Tenos
 
