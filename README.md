@@ -32,4 +32,4 @@ UI Inspired by VScode
 
 
 [^1]: With the help of a few packages, all data stored besides the user theme is encrypted using AES encryption and a super long encryption key
-[^2]: Pronounced "tay no" (with an australian accent... except im american,) not "T no" or "te(st) no"
+[^2]: Pronounced "tay no" like with an australian accent
