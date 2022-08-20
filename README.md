@@ -27,9 +27,7 @@ UI Inspired by VScode
 
 
 ## Names
-- **teno**[^2] (main name, stylized lowercase, *it's the word note scrambled*)
+- **teno**[^1] (main name, stylized lowercase, *it's the word note scrambled*)
 - Project C.E.N.A (humorous name, short for **C**ybernetically **E**ncrypted **N**otes **A**pp, and also named for its encryption "You Ain't CENA byte")
 
-
-[^1]: With the help of a few packages, all data stored besides the user theme is encrypted using AES encryption and a super long encryption key
-[^2]: Pronounced "tay no" like with an australian accent
+[^1]: Pronounced "tay no" like with an australian accent.
