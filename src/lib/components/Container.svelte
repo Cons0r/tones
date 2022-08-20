@@ -7,7 +7,7 @@
         activetenoind.set($tenos.findIndex((v) => v?.id === a))
     })
     const { addModal } = getModalContext()
-
+    export let type: "web" | "electron";
     function createteno() {
         return () => {
             tenos.update(t => {
@@ -110,8 +110,8 @@
             })
         }
     }
-
-    setContext(contextkey, {
+    export let version: string | undefined;
+    setContext<Context>(contextkey, {
         createteno,
         openteno,
         renameteno,
@@ -120,8 +120,11 @@
         keydown,
         findteno,
         swapdivide,
-        lockmodal
+        lockmodal,
+        type,
+        appVersion: version
     })
+    console.log(`Internal: Teno loaded environment ${type}`)
 </script>
 
 <slot />

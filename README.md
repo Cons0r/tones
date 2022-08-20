@@ -24,7 +24,10 @@ Vscode but if it only had markdown and was made in svelte
 -   [x] ~Dark Mode~
 -   [ ] Users can download .teno files containing tenos
 -   [ ] Users can select what tenos to export and import to and from .teno files
+-   [ ] Create a logo
 
+## Active Issues
+-  [ ] Editor and Viewer not scrolling correctly (Possibly replace this with tiptap WYSIWYG?)
 
 ## Names
 - **teno**[^1] (main name, stylized lowercase, *it's the word note scrambled*)

@@ -9,7 +9,9 @@ const contextkey = {
     keydown: null,
     findteno: null,
     swapdivide: null,
-    lockmodal: null
+    lockmodal: null,
+    type: null,
+    appVersion: null
 }
 
 export const getAppContext = () => getContext<Context>(contextkey)

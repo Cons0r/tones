@@ -7,7 +7,9 @@ function rand() {
 }
 
 const key = persist<number>(writable(rand()), localStorage(), 'TENO>KEY')
-const tenos = persist<Teno[]>(writable([]), encryptedLocalStorage(get(key)), 'TENO>ENCRYPTED')
+const tenos = persist<Teno[]>(writable([]), encryptedLocalStorage(get(key), {
+    "TENO>ENCRYPTED": []
+}), 'TENO>ENCRYPTED')
 const theme = persist<boolean>(writable(false), localStorage(), 'TENO>UI>THEME')
 const opentenos = writable<string[]>([])
 const activeteno = writable<string>()

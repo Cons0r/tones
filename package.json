@@ -1,11 +1,13 @@
 {
   "name": "svelte-vite-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2beta",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build-to:electron": "rm -rf electron/dist/ && cp -R dist electron && node fixelectron",
+    "buildall": "npm run build && npm run build-to:electron",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
@@ -30,5 +32,8 @@
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
     "vite-tsconfig-paths": "^3.5.0"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.34.0"
   }
 }
