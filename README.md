@@ -20,18 +20,15 @@ UI Inspired by VScode
 
 ## Others
 -   [ ] User can lock a teno with a PIN code
--   [x] ~All data is fully encrypted using AES[^1]~
+-   [x] ~All data is fully encrypted~
 -   [x] ~Dark Mode~
 -   [ ] Users can download .teno files containing tenos
 -   [ ] Users can select what tenos to export and import to and from .teno files
 
 
-## Other Names
-This project goes by multiple names
-- **teno**[^2] (current name, stylized lowercase, *it's the word note scrambled*)
-- Project CENA (code name short for Cybernetically Encrypted Notes App, and also named for its encryption "You Ain't CENA byte")
-- JorPect TENO (Project NOTE scrambled)
-- Tones (dead name)
+## Names
+- **teno**[^2] (main name, stylized lowercase, *it's the word note scrambled*)
+- Project C.E.N.A (humorous name, short for **C**ybernetically **E**ncrypted **N**otes **A**pp, and also named for its encryption "You Ain't CENA byte")
 
 
 [^1]: With the help of a few packages, all data stored besides the user theme is encrypted using AES encryption and a super long encryption key
