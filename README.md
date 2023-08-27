@@ -1,4 +1,4 @@
-# teno
+# CENOTE, You ain't cena byte
 
 vscode but if it only had markdown and was made in svelte
 
@@ -20,17 +20,12 @@ vscode but if it only had markdown and was made in svelte
 
 ## Others
 -   [ ] User can lock a teno with a PIN code
--   [x] ~All data is fully encrypted~
+-   [ ] All data is fully encrypted
 -   [x] ~Dark Mode~
 -   [ ] Users can download .teno files containing tenos
 -   [ ] Users can select what tenos to export and import to and from .teno files
--   [ ] Create a logo
 
 ## Active Issues
 -  [ ] Major sizing Issues
-
-## Names
-- **teno**[^1] (main name, stylized lowercase, *it's the word note scrambled*)
-- Project C.E.N.A (humorous name, short for **C**ybernetically **E**ncrypted **N**otes **A**pp, and also named for its encryption "You Ain't CENA byte")
 
 [^1]: Pronounced "tay no" like with an australian accent.
